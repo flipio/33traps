@@ -2,6 +2,9 @@
 
 > 33 traps board game
 
+This is a very old board game i found which is very fun for killing some spare time while wating in the Q or something like that:)
+It also gave me a chance to try something new like vue 2!  
+
 ## Build Setup
 
 ``` bash
