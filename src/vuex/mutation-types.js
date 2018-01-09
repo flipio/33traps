@@ -1,5 +1,5 @@
 
-export const INIT = 'INIT'
+export const INIT_GAME = 'INIT_GAME'
 export const SET_TITLE = 'SET_TITLE'
 export const DESELECT_ALL = 'DESELECT_ALL'
 export const SELECT_DOT = 'SELECT_DOT'

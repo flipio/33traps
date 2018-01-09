@@ -1,18 +1,24 @@
 'use strict'
 require('./check-versions')()
-
+const argv = require('minimist')(process.argv.slice(2));
 process.env.NODE_ENV = 'production'
 
+const publicPath = argv.publicPath || '/';
 const ora = require('ora')
 const rm = require('rimraf')
 const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
+
+// if assetPublicPath is passed set it in config.build
 const config = require('../config')
+config.build.assetsPublicPath = publicPath;
+
 const webpackConfig = require('./webpack.prod.conf')
 
 const spinner = ora('building for production...')
 spinner.start()
+
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err

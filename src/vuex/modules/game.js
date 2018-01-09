@@ -58,7 +58,7 @@ const state = {
 
 const mutations = {
 
-  [types.INIT] (state) {
+  [types.INIT_GAME] (state) {
     state.grid = initGrid()
   },
 

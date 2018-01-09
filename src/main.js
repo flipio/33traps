@@ -7,7 +7,7 @@ import VueResource from 'vue-resource'
 import App from './App'
 import Game from './components/game'
 import Home from './pages/Home'
-import router from './router'
+// import router from './router'
 
 import store from './vuex/store'
 
@@ -27,7 +27,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   store,
-  router,
+  // router,
   template: '<App/>',
   components: { App, Game, Home }
 })

@@ -2,11 +2,11 @@
 
   <div class="game">
 
-    <div class="text-xs-center">
+    <div class="text-xs-center game-width">
       <v-btn @click="restartGame" round color="primary" dark>Restart Game</v-btn>
     </div>
 
-    <div class="grid">
+    <div class="grid game-width">
       <div class="grid-row" v-for="row in gameGrid">
         <div class="grid-el" v-for="dot in row" @click="dotClick(dot)">
           <span class="grid-el-fill" v-if="dot"
@@ -24,60 +24,13 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
-  import _ from 'lodash'
-
-  let getDotByXY = (grid, x, y) => {
-    return _.find(grid[x], (dot) => dot && dot.y === y)
-  }
-
-  let canEat = (startDot, clickedDot) => {
-    let dotToEat = null
-
-    let dotA = null
-    let dotB = null
-
-    if (startDot.x === clickedDot.x) {
-
-      if (startDot.y > clickedDot.y) {
-        dotA = clickedDot
-        dotB = startDot
-      } else {
-        dotA = startDot
-        dotB = clickedDot
-      }
-
-      if ((dotB.y - dotA.y) === 2) {
-        dotToEat = {}
-        dotToEat.y = dotA.y + 1
-        dotToEat.x = dotA.x
-      }
-
-    } else if (startDot.y === clickedDot.y) {
-
-      if (startDot.x > clickedDot.x) {
-        dotA = clickedDot
-        dotB = startDot
-      } else {
-        dotA = startDot
-        dotB = clickedDot
-      }
-
-      if ((dotB.x - dotA.x) === 2) {
-        dotToEat = {}
-        dotToEat.y = dotA.y
-        dotToEat.x = dotA.x + 1
-      }
-
-    }
-
-    return dotToEat
-  }
+  import {canEat, getDotByXY} from './gameHelper'
 
   export default {
     name: 'game',
     methods: {
       restartGame: function () {
-        this.initStore()
+        this.initGame()
       },
       dotClick: function (dot) {
 
@@ -113,7 +66,7 @@
         }
 
       },
-      ...mapActions(['deselectAll', 'selectDot', 'removeDot', 'reviveDot', 'initStore']),
+      ...mapActions(['deselectAll', 'selectDot', 'removeDot', 'reviveDot', 'initGame']),
       ...mapGetters(['grid', 'getSelectedDot'])
     },
     computed: {

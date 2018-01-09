@@ -4,8 +4,8 @@
       <v-toolbar app><h3>33 Traps</h3></v-toolbar>
       <v-content>
         <v-container fluid>
-          <h1>33 Traps</h1>
-          <router-view/>
+          <!--<router-view/>-->
+          <Home></Home>
         </v-container>
       </v-content>
       <v-footer app></v-footer>
@@ -15,8 +15,11 @@
 </template>
 
 <script>
+  import Home from '@/pages/Home'
+
   export default {
-    name: 'app'
+    name: 'app',
+    components: {Home}
   }
 </script>
 
@@ -27,5 +30,10 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+  }
+
+  .game-width {
+    min-width: 250px;
+    max-width: 500px;
   }
 </style>

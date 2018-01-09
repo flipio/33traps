@@ -1,8 +1,8 @@
 
 import * as types from './mutation-types'
 
-export const initStore = ({ commit }) => {
-  commit(types.INIT)
+export const initGame = ({ commit }) => {
+  commit(types.INIT_GAME)
 }
 
 export const selectDot = ({ commit }, dot) => {
