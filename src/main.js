@@ -5,8 +5,6 @@ import Vuetify from 'vuetify'
 import VueResource from 'vue-resource'
 
 import App from './App'
-import Game from './components/game'
-import Home from './pages/Home'
 // import router from './router'
 
 import store from './vuex/store'
@@ -14,9 +12,7 @@ import store from './vuex/store'
 Vue.use(VueResource)
 // for cors
 Vue.http.interceptors.push((request, next) => {
-  if (!/https:\/\/api.github.com/.test(request.url)) {
-    request.credentials = true
-  }
+  request.credentials = false
   next()
 })
 
@@ -29,5 +25,5 @@ new Vue({
   store,
   // router,
   template: '<App/>',
-  components: { App, Game, Home }
+  components: { App }
 })

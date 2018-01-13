@@ -4,6 +4,20 @@ export const grid = ({game}) => {
   return game.grid
 }
 
+export const getAlive = ({game}) => {
+  let count = 0;
+
+  _.forEach(game.grid, (row) => {
+    _.forEach(row, (dot) => {
+      if (dot && dot.exists) {
+        count++
+      }
+    })
+  })
+
+  return count
+}
+
 export const getSelectedDot = ({game}) => {
   let grid = game.grid
 

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import Game from '@/components/game'
+  import Game from '@/components/game/Game'
 
   export default {
     methods: {
