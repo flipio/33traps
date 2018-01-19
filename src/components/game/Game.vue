@@ -10,6 +10,20 @@
         <v-btn  @click="refreshData" color="primary" dark slot="activator" ripple round>Leaderboard</v-btn>
         <Leaderboard ref="leaderboardInstance"></Leaderboard>
       </v-dialog>
+
+      <v-dialog scrollable max-width="400px">
+        <v-btn  color="primary" dark slot="activator" ripple round>
+          How to?
+        </v-btn>
+
+        <v-flex class="how-to">
+          <p>
+            Click on a black dot ( it becomes automatically selected ) and move it to an empty (white) slot. By doing so you are "eating" the dot that is being jumped over. Continue in that fashion until you have reached the goal.
+            The goal is to have only one black dot left. You can only "jump" over 1 dot at a time.
+          </p>
+          <img class="how-to-gif" src="static/how-to.gif" alt="How to?">
+        </v-flex>
+      </v-dialog>
     </div>
 
     <div class="grid game-width">
@@ -55,7 +69,7 @@
   import { mapActions, mapGetters } from 'vuex'
   import { canEat, getDotByXY } from './gameHelper'
   import GameService from '../../services/GameService'
-  import Leaderboard from '@/components/leaderboard/Leaderboard'
+  import Leaderboard from '../leaderboard/Leaderboard'
   import Loader from '@/components/loader/Loader'
 
   export default {
@@ -153,6 +167,19 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+  .how-to {
+    background: #fbfbfb;
+  }
+
+  .how-to > p {
+    margin: 12px;
+  }
+
+  .how-to-gif {
+    width: 100%;
+    padding-top: 7px;
+  }
 
   .leaderboard {
     width: 100%;
